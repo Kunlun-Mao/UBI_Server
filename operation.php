@@ -18,7 +18,7 @@ switch ($_GET['action']) {
 		$list = unserialize($list);
 		fclose($file);
 		
-		echo array_shift($list);
+		echo json_encode(array_shift($list));
 		$file = fopen('list.txt', 'w');
 		fwrite($file, serialize($list));
 		fclose($file);
