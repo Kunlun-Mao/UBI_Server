@@ -18,7 +18,7 @@ switch ($_GET['action']) {
 		$list = unserialize($list);
 		fclose($file);
 		
-		array_shift($list);
+		echo array_shift($list);
 		$file = fopen('list.txt', 'w');
 		fwrite($file, serialize($list));
 		fclose($file);
@@ -37,11 +37,11 @@ switch ($_GET['action']) {
 		$list = unserialize($list);
 		fclose($file);
 		
-		array_pop($list);
+		$list[] = 'undo';
 		$file = fopen('list.txt', 'w');
 		fwrite($file, serialize($list));
 		fclose($file);
-		break;
+	 	break;
 	case 'init':
 		$file = fopen('list.txt', 'w');
 		$ss = serialize(array());
